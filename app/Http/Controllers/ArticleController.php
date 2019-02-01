@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateArticle;
 
 class ArticleController extends Controller
 {
@@ -15,7 +16,7 @@ class ArticleController extends Controller
     public function index()
 
     {
-        $articles = Article::all();
+        $articles = Article::latest('published_at')->get();
         return view('articles.index',compact('articles'));
     }
 
@@ -26,7 +27,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $submitText = 'Create article';
+        return view('articles.create',compact('submitText'));
     }
 
     /**
@@ -35,9 +37,11 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateArticle $request)
     {
-        //
+        //dd($request->published_at);
+        Article::create($request->all());
+        return redirect('articles');
     }
 
     /**

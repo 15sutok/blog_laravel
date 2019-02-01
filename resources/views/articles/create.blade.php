@@ -2,9 +2,16 @@
 
 
 @section('content')
+    <div class="container">
+        <h3>Create new article</h3>
 
-<h2>{{$article->title}}</h2>
+        {!! Form::open(['url' => 'articles']) !!}
 
-    <article>{{ $article->body }}</article>
+        @include('articles.partials.form')
 
+        {!! Form::close() !!}
+
+        @include('articles.partials.errors')
+
+    </div>
 @endsection
