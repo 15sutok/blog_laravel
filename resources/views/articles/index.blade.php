@@ -1,5 +1,6 @@
 @extends('articles.layouts.app')
 
+@section('title', 'All articles')
 
 @section('content')
 
@@ -17,8 +18,8 @@
                     <h3 class="mb-0">
                         <a class="text-dark" href="{{ route('articles.show',[$article->id]) }}">{{ $article->title }}</a>
                     </h3>
-                    <div class="mb-1 text-muted">{{ $article->published_at }}</div>
-                    <p class="card-text mb-auto">{{ $article->body }}</p>
+                    <div class="mb-1 text-muted">{{ $article->published_at->diffForHumans() }}</div>
+                    <p class="card-text mb-auto">{{ $article->description }}</p>
                     <a href="{{ action('ArticleController@show',[$article->id]) }}">Continue reading</a>
                 </div>
 
