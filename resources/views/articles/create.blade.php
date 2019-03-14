@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Create new article</h3>
+        <h3 class="my-2 font-weight-bold" >Create new article</h3>
 
         {!! Form::open(['url' => 'articles']) !!}
 

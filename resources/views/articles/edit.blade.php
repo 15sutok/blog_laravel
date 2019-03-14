@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Update article</h3>
+        <h3 class="my-2 font-weight-bold ">Update article</h3>
 
         {!! Form::model($article,['method' => 'PATCH', 'route' => ['articles.update', $article->id]]) !!}
 

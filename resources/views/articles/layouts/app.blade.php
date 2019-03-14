@@ -11,25 +11,21 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/all.css') }}" rel="stylesheet" />
-
-
     </head>
     <body>
-    <div class="main-content">
-    <!--Flash-->
-    @include('articles.partials.flash')
-    <!-- Navbar -->
-    @include('articles.partials.navbar')
-    <!-- Content -->
-    @yield('content')
+        <div class="main-content">
+            <!--Flash-->
+            @include('articles.partials.flash')
 
+            <!-- Navbar -->
+            @include('articles.partials.navbar')
 
+            <!-- Content -->
+            @yield('content')
 
-    <script src="{{ asset('js/all.js') }}"></script>
-    <!-- Footer -->
-    @yield('footer')
-
-
-    </div>
+            <script src="{{ asset('js/all.js') }}"></script>
+            <!-- Footer -->
+            @yield('footer')
+        </div>
     </body>
 </html>
