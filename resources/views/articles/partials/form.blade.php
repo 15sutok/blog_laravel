@@ -4,7 +4,7 @@
 </div>
 <div class="form-group">
     {!! Form::label('description', 'Text: ', ['class' => 'foo']) !!}
-    {!! Form::textarea('description', null, ['class' => 'form-control','placeholder' => 'Enter your article text', 'value' => old('body'), 'required']) !!}
+    {!! Form::textarea('description', null, ['class' => 'form-control','placeholder' => 'Enter your article text', 'value' => old('description'), 'required']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('published_at', 'Published at: ') !!}

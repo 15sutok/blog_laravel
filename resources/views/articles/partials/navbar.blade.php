@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="{{ action('ArticleController@index') }}">All articles</a>
+                <a class="nav-link " href="{{ action('ArticleController@index') }}">All articles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ action('ArticleController@create') }}">Create article</a>
