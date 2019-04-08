@@ -10,7 +10,7 @@
 
     <article class="lead text-justify font-weight-normal">{{ $article->description }}</article>
 
-    <span class="d-inline-block m-1"><strong>Author:</strong> {{ $user->name }}</span>
+    <span class="d-inline-block m-1"><strong>Author:</strong> {{ $article->user->name }}</span>
 
     <a class="btn btn-primary float-right px-5 my-2" role="button" href="{{ route('articles.edit',[$article->id]) }}">Edit</a>
 

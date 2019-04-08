@@ -15,7 +15,7 @@
         {!! Form::model($article,['method' => 'DELETE', 'route' => ['articles.destroy', $article->id]]) !!}
 
             <div class="form-group">
-                {!! Form::submit('Delele', ['class' => 'btn btn-secondary']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-secondary']) !!}
             </div>
 
         {!! Form::close() !!}

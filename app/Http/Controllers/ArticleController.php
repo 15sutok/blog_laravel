@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Mail\ArticleCreated;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticleRequest;
@@ -15,7 +16,7 @@ class ArticleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['only' => ['create', 'edit']]);
+        $this->middleware('auth', ['except' => [ 'index','show']]);
     }
 
     /**
@@ -54,15 +55,17 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
 
-
         $article = Auth::user()->articles()->create($request->all());
 
         $article->tags()->attach(request('tags'));
 
-        session()->flash('flash_message','Task was successful!');
+        \Mail::to('admin@example.com')->send(
+            new ArticleCreated($article)
+        );
+
+        session()->flash('flash_message','The article has been created');
 
         return redirect('articles');
-
 
     }
 
@@ -74,9 +77,8 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        $user = $article->user;
 
-        return view('articles.show', compact('article', 'user'));
+        return view('articles.show', compact('article','user'));
     }
 
     /**
@@ -107,6 +109,8 @@ class ArticleController extends Controller
         $article->tags()->sync(request('tags'));
 
         $article->update($request->all());
+
+        session()->flash('flash_message','The article has been updated');
 
         return redirect('articles');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
+use App\User;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -13,4 +14,8 @@ class TagController extends Controller
 
         return view('articles.index',compact('articles'));
     }
+
+
+
+
 }

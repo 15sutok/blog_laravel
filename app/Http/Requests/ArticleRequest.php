@@ -25,9 +25,9 @@ class ArticleRequest extends FormRequest
     {
         return [
 
-            'title' => 'required|min:3|max:50',
-            'description' => 'required|min:3',
-            'published_at' => 'required|min:3'
+            'title' => 'required|min:3|max:255',
+            'description' => 'required|min:10',
+            'published_at' => 'required'
         ];
     }
 }
